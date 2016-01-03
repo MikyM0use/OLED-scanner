@@ -4,8 +4,8 @@ Based on a RX5808 module (any RC305 can be modified as well) SPI-programmed by a
 wiki/documentation work in progress...
 
 ##some (preliminary) pictures...
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg" width="800" />
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg" width="800" />
+<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
+<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg"  />
 
 ##similar project:
 
