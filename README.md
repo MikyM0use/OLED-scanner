@@ -3,11 +3,12 @@
 Based on a RX5808 module (any RC305 can be modified as well) SPI-programmed by an Arduino PRO mini. Data are showed on a cheap OLED 0.96'' display.
 wiki/documentation work in progress...
 
-##some (preliminary) pictures...
+##Some (preliminary) pictures...
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg"  />
+<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/receiver_explained.jpg"  />
 
-##similar project:
+##Similar project:
 
 * rx5808-pro (https://code.google.com/p/rx5808-pro/)
 Deluxe 5.8GHz (rx5808 module) control based on arduino with TV out.
@@ -15,7 +16,7 @@ Deluxe 5.8GHz (rx5808 module) control based on arduino with TV out.
 universal FPV receiver module.
 
 
-##donations:
+##Donations:
 
 Thanking all tx and rx that were sacrificed in the course of this project, I have to admit to being constantly looking for funds to carry out the scanner. Hardware or paypal donations are always accepted.
 
