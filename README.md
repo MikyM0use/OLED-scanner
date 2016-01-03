@@ -26,7 +26,7 @@ please refer to the wiki page for all the hardware details, the software manual 
 ##A picture of the "receiver mode"
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/receiver_explained.jpg"  />
 
-##Similar project:
+##Similar projects:
 
 * rx5808-pro (https://code.google.com/p/rx5808-pro/)
 
