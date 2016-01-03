@@ -20,17 +20,22 @@ please refer to the wiki page for all the hardware details, the software manual 
 
 **wiki/documentation is work in progress...**
 
-##Some (preliminary) pictures...
+##Some (preliminary) pictures of the "scanner mode"
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg"  />
+
+##A picture of the "receiver mode"
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/receiver_explained.jpg"  />
 
 ##Similar project:
 
 * rx5808-pro (https://code.google.com/p/rx5808-pro/)
+
 Deluxe 5.8GHz (rx5808 module) control based on arduino with TV out.
-* fpv_receiver_module by bollop80 (https://github.com/dollop80/fpv_receiver_module)
-universal FPV receiver module.
+
+* fpv_receiver_module (https://github.com/dollop80/fpv_receiver_module)
+
+universal FPV receiver module by bollop80.
 
 
 ##Donations:
