@@ -14,13 +14,17 @@ This file is part of OLED 5.8ghz Scanner project.
     You should have received a copy of the GNU General Public License
     along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright 2016 Michele Martinelli
+    Copyright © 2016 Michele Martinelli
   */
 
 #define FRAME_START_X 0
 #define FRAME_START_Y 7
 
 char buf[80];
+
+void wait_draw() {
+  u8g.drawStr(FRAME_START_X, FRAME_START_Y, "please wait... ");
+}
 
 void receiver_draw( uint32_t channel) {
 
@@ -32,17 +36,17 @@ void receiver_draw( uint32_t channel) {
 
   //display current freq and the next strong one
   u8g.setFont(u8g_font_8x13);
-  sprintf (buf, "curr [%x]%d:%d", pgm_read_byte_near(channelNames + channel), pgm_read_word_near(channelFreqTable + channel), scanVec[channel]); //frequency:RSSI
+  sprintf (buf, "curr [%x]%d:%d", pgm_read_byte_near(channelNames + channel), pgm_read_word_near(channelFreqTable + channel), rx5808.getRssi(channel)); //frequency:RSSI
   u8g.drawStr(FRAME_START_X, FRAME_START_Y + 15, buf);
 
   uint16_t next_chan = rx5808.getNext(channel);
-  sprintf (buf, "next [%x]%d:%d", pgm_read_byte_near(channelNames + next_chan), pgm_read_word_near(channelFreqTable + next_chan), scanVec[next_chan]); //frequency:RSSI
+  sprintf (buf, "next [%x]%d:%d", pgm_read_byte_near(channelNames + next_chan), pgm_read_word_near(channelFreqTable + next_chan), rx5808.getRssi(next_chan)); //frequency:RSSI
   u8g.drawStr(FRAME_START_X, FRAME_START_Y + 30, buf);
 
   //histo below
   for (int i = CHANNEL_MIN; i < CHANNEL_MAX; i++) {
     uint8_t channelIndex = pgm_read_byte_near(channelList + i); //retrive the value based on the freq order
-    uint16_t rssi_scaled = map(scanVec[channelIndex], 1, BIN_H, 1, BIN_H / 2);
+    uint16_t rssi_scaled = map(rx5808.getRssi(channelIndex), 1, BIN_H, 1, BIN_H / 2);
     u8g.drawVLine(5 + 3 * i, 65 - rssi_scaled, rssi_scaled); //for bar plot, half size because of the small space
   }
 
@@ -81,8 +85,8 @@ void scanner_draw(uint8_t band) {
 
   //make a small histo down left and print the rssi information of the 8 channels of the band
   for (i = 0; i < 8; i++) {
-    u8g.drawVLine(2 * i + 5, 20 + BIN_H - scanVec[offset + i], scanVec[offset + i]); //for bar plot
-    sprintf (buf, "%d:%d", pgm_read_word_near(channelFreqTable + offset + i), scanVec[offset + i]); //frequency:RSSI
+    u8g.drawVLine(2 * i + 5, 20 + BIN_H - rx5808.getRssi(offset + i), rx5808.getRssi(offset + i)); //for bar plot
+    sprintf (buf, "%d:%d", pgm_read_word_near(channelFreqTable + offset + i), rx5808.getRssi(offset + i)); //frequency:RSSI
 
     u8g.drawStr(30 + x, 30 + 10 * y++, buf);
 
@@ -111,7 +115,7 @@ void spectrum_draw() {
 
   for (int i = CHANNEL_MIN; i < CHANNEL_MAX; i++) {
     uint8_t channelIndex = pgm_read_byte_near(channelList + i); //retrive the value based on the freq order
-    u8g.drawVLine(5 + 3 * i, 20 + BIN_H - scanVec[channelIndex], scanVec[channelIndex]); //for bar plot
+    u8g.drawVLine(5 + 3 * i, 20 + BIN_H - rx5808.getRssi(channelIndex), rx5808.getRssi(channelIndex)); //for bar plot
   }
 
   //computation of the max value
@@ -179,6 +183,8 @@ void summary_draw() {
 
 //initial spash screen
 void splashScr() {
+  //u8g.setFontPosTop();
+  u8g.setFont(u8g_font_6x10);
   u8g.firstPage();
   do {
 

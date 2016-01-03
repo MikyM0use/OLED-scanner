@@ -14,15 +14,25 @@ This file is part of OLED 5.8ghz Scanner project.
     You should have received a copy of the GNU General Public License
     along with Nome-Programma.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright 2016 Michele Martinelli
+    Copyright © 2016 Michele Martinelli
   */
 
+#include "rx5808.h"
 #define RSSI_THRESH (scanVec[getMaxPos()]-5) //strong channels are near to the global max
 
 RX5808::RX5808(uint16_t pin) {
   _rssiPin = pin;
+  _stop_scan = 0;
 }
 
+uint16_t RX5808::getRssi(uint16_t channel) {
+  return scanVec[channel];
+}
+
+//stop scan
+void RX5808::abortScan(void) {
+  _stop_scan = 1;
+}
 //get next strong rssi channel
 uint16_t RX5808::getNext(uint16_t channel) {
   channel = (channel + 1) % CHANNEL_MAX;
@@ -106,10 +116,12 @@ void RX5808::init() {
   SPI.transfer(0x00);
   SPI.transfer(0x00);
   digitalWrite(SSP, HIGH);
+
+  rx5808.scan(1, BIN_H);
 }
 
 //set a certain frequency for the RX module
-void RX5808::set_freq(uint32_t freq) {
+void RX5808::setFreq(uint32_t freq) {
   uint32_t Delitel = (freq - 479) / 2;
 
   byte DelitelH = Delitel >> 5;
@@ -130,35 +142,36 @@ void RX5808::set_freq(uint32_t freq) {
 
 //do a complete scan and normalize all the values
 void RX5808::scan(uint16_t norm_min, uint16_t norm_max) {
-  uint16_t rssi, _chan;
-  _doRawScan();
 
-  for (_chan = CHANNEL_MIN; _chan < CHANNEL_MAX; _chan++) {
-    rssi = scanVec[_chan];
+  for (uint16_t _chan = CHANNEL_MIN; _chan < CHANNEL_MAX; _chan++) {
+    if (_stop_scan) {
+      _stop_scan = 0;
+      return;
+    }
+
+    uint32_t freq = pgm_read_word_near(channelFreqTable + _chan);
+    setFreq(freq);
+    _wait_rssi();
+
+    uint16_t rssi =  _readRSSI();
     rssi = constrain(rssi, rssi_min, rssi_max);
     rssi = map(rssi, rssi_min, rssi_max, norm_min, norm_max);   // scale from 1..100%
     scanVec[_chan] = rssi;
   }
 }
 
-void RX5808::_doRawScan() {
-  uint32_t freq;//
-  uint16_t _chan;
-  for (_chan = CHANNEL_MIN; _chan < CHANNEL_MAX; _chan++) {
-    if (killall) {
-      killall = 0;
-      return;
-    }
+//same as scan, but raw values, used for calibration
+void RX5808::_calibrationScan() {
+  for (uint16_t _chan = CHANNEL_MIN; _chan < CHANNEL_MAX; _chan++) {
 
-    freq = pgm_read_word_near(channelFreqTable + _chan); //(5495)+channel*4;//pgm_read_word_near(channelTable + channelIndex);
-
-    set_freq(freq);
-    _wait_rssi_ready();
+    uint32_t freq = pgm_read_word_near(channelFreqTable + _chan);
+    setFreq(freq);
+    _wait_rssi();
     scanVec[_chan] = _readRSSI();
   }
 }
 
-void RX5808::_wait_rssi_ready() {
+void RX5808::_wait_rssi() {
   // 30ms will to do a 32 channels scan in 1 second
 #define MIN_TUNE_TIME 30
   delay(MIN_TUNE_TIME);
@@ -169,7 +182,7 @@ uint16_t RX5808::_readRSSI() {
   for (uint8_t i = 0; i < 10; i++)
   {
     sum += analogRead(_rssiPin);
-    delay(5);
+    delay(2);
   }
   return sum / 10; // average
 }
@@ -181,7 +194,7 @@ void RX5808::calibration() {
   uint16_t  rssi_setup_max = 0, maxValue = 0;
 
   for (j = 0; j < 5; j++) {
-    _doRawScan();
+    _calibrationScan();
 
     for (i = CHANNEL_MIN; i < CHANNEL_MAX; i++) {
       uint16_t rssi = scanVec[i];
