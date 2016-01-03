@@ -18,7 +18,7 @@ All you need is:
 
 please refer to the wiki page for all the hardware details, the software manual and all the other relevant information.
 
-##wiki/documentation is work in progress...
+**wiki/documentation is work in progress...**
 
 ##Some (preliminary) pictures...
 <img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
