@@ -1,19 +1,19 @@
 # OLED 5.8ghz receiver/scanner
 
-This scanner/receiver is intended (but not limited to) FPV quadcopter addicted. 
+This scanner/receiver is aimed (but not limited to) FPV quadcopter-race addicted. 
+
 When many people need to use video channels over 5.8ghz the interferences become a problem, 
-and it's useful to have a simple indication of what channel is the one with less "problems". 
-Actually, problems are due not only to the superposition of two or more transmitters, but 
-also to the harmonics of the transmission frequency or the distance between the TXs.
+not only because of the superposition of two or more transmitters, but also to the harmonics 
+of the transmission frequency or the distance between different TXs. So it's useful to have 
+a simple indication of what channel (frequency) is free to use.
 
-The goal of this project is to develop a simple "scanner" that measures the RSSI (Received Signal Strength Intensity) 
-of each 5.8ghz channel (I'm referring to the commonly used FPV channels). 
-This way it's possible to know what channel is free to use and what channel is used by someone else. 
-All you need is:
+The goal of this project is to develop a simple "scanner" that measures the RSSI (Received Signal Strength Intensity)
+of each 5.8ghz channel, showing free and used channels.
+The hardware used in this project is:
 
-* An RX5808 SPI-modified module (any RC305 receiver can be modified as well) 
+* An RC305 receiver with SPI-modified module (see wiki page) (any RTC6715-based receiver, like the RX5808, can be used) 
 * An Arduino (I used a PRO mini)
-* A cheap OLED 0.96'' display to show the informations
+* A cheap OLED 0.96'' display (to show the informations)
 * some electronic components
 
 please refer to the wiki page for all the hardware details, the software manual and all the other relevant information:
