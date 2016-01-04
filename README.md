@@ -28,11 +28,11 @@ please refer to the wiki page for all the hardware details, the software manual 
 
 ##Similar projects:
 
-* rx5808-pro (https://code.google.com/p/rx5808-pro/)
+* [rx5808-pr](https://code.google.com/p/rx5808-pro/)
 
 Deluxe 5.8GHz (rx5808 module) control based on arduino with TV out.
 
-* fpv_receiver_module (https://github.com/dollop80/fpv_receiver_module)
+* [fpv_receiver_module](https://github.com/dollop80/fpv_receiver_module)
 
 universal FPV receiver module by bollop80.
 
