@@ -81,7 +81,7 @@ Just to let you get an idea of the result, this is what I've done, but keep in m
 ![finished_back](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/finished_back.jpg)
 
 ##STEP3 - Voltage divider
-This is an option to get the voltage of the main battery (that can be a 2s or 3s lipo). I think that the simplest solution is to solder a couple of resistor directly on the input jack connection...
+This is an option to get the voltage of the main battery (that can be a 2s or 3s lipo). I think that the simplest solution is to solder a couple of resistor (15k and 10k ohm) directly on the input jack connection...
 
 ![voltage_divider](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/voltage_divider.jpg)
 
@@ -90,6 +90,7 @@ There are basically two modes of functioning, "scanner" and "receiver". In the f
 
 ![rx5808 scanner](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/screen_list.jpg)
 
+The scanner MUST be calibrated before use. Calibration procedure is simple: just switch on a vtx couple of meter away from the scanner, then turn on the scanner while pushing a button (no matter which one) for couple of seconds. You will see min/max RSSI and the calibration is over ;)
 
 ##Donations:
 
