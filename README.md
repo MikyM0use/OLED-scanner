@@ -49,8 +49,18 @@ Stages to success:
 [SOFTWARE section](#software-section)
 
 ##Connection diagram
-hope this image is enough for the moment, sorry!
+hope this image is enough for the moment, sorry! 
+
 ![rx5808_hack1](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/connection_diagram/connections_b1.jpg)
+
+Actually it's possible to use any value for the 3 SPI resistors in the range of 1kohm-10kohm. 
+For the voltage divider I used 15Kohm and 10Kohm resistors, but any 1/3 divider should work (see section [Voltage divider](#step3---voltage-divider)).
+
+**Notice that to power the arduino and the OLED display you have two different options (see the red arrows in the picture above):**
+* take the +5v and GND directly from the pin of the RX module like I did
+* use the linear voltage regulator of the RC305
+
+DO NOT use directly the DC input of the RC305 unless you know that you are actually bypassing the voltage regulation step.
 
 ##STEP 1 - RX SPI mod
 
