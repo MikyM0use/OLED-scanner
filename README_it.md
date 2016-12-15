@@ -30,11 +30,11 @@ normale ricevente 40CH con autoscan.
 Il costo totale per la realizzazione dello scanner/ricevente non dovrebbe superare i 30€.
 
 ##Alcune immagini della "modalità scanner"
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg"  />
+<img src="/docs/summary_explained.jpg"  />
+<img src="/docs/band_explained.jpg"  />
 
 ##Un'immagine della "modalità ricevitore"
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/receiver_explained.jpg"  />
+<img src="/docs/receiver_explained.jpg"  />
 
 ##Progetti simili:
 
@@ -50,7 +50,7 @@ Ricevitore FPV universale by bollop80.
 
 Spero che questa immagine sia abbastanza per il momento...
 
-![rx5808_hack1](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/connection_diagram/connections_b1.jpg)
+![rx5808_hack1](/docs/connections_b1.jpg)
 
 In realtà è possibile usare qualsiasi valore tra 1kohm e 10kohm per le resistenze SPI,
 mentre per il partitore resistivo necessario a misurare la tensione della batteria
@@ -75,13 +75,13 @@ rimuovendo una resistenza saldata all'interno del modulo stesso...
 
 prima di tutto, bisogna aprire il modulo RX, che sarà simile a questo:
 
-![rx5808_hack1](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_nocase.jpg)
+![rx5808_hack1](/docs/RC305_nocase.jpg)
 
 poi, rimuovere con delicatezza la copertura in alluminio:
-![rx5808_hack2](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_opened_original.jpg)
+![rx5808_hack2](/docs/RC305_opened_original.jpg)
 
 a questo punto, è necessario rimuovere la resistenza indicata dalla freccia:
-![rx5808_hack3](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_opened_arrow.jpg)
+![rx5808_hack3](/docs/RC305_opened_arrow.jpg)
 
 poi, richiudere tutto.
 
@@ -96,8 +96,8 @@ Solo per darvi un'idea del risultato, questo è quello che ho fatto nel primo pr
 anche alcune features non documentate su cui sto ancora lavorando).
 
 
-![finished_front](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/finished_front.jpg)
-![finished_back](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/finished_back.jpg)
+![finished_front](/docs/finished_front.jpg)
+![finished_back](/docs/finished_back.jpg)
 
 ##STEP3 - Partitore resistivo
 Questo è un passaggio opzionale, che permette di monitorare costantemente il voltaggio 
@@ -106,7 +106,7 @@ a batterie (che possono essere 2s o 3s). Ho pensato che la soluzione più sempli
 fosse saldare due resistenze SMD (15k e 10k ohm) direttamente sul jack di alimentazione,
 ma si possono tranquillamente utilizzare anche resistenze "tradizionali".
 
-![voltage_divider](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/voltage_divider.jpg)
+![voltage_divider](/docs/voltage_divider.jpg)
 
 ##Sezione SOFTWARE
 Praticamente ci sono solo due modalità di funzionamento, "scanner" e "ricevente". Nella prima
@@ -119,7 +119,7 @@ probabilmente si trova una trasmissione video (RSSI sopra ad una certa soglia).
 
 La lista delle differenti schermate (auto esplicative) è riportata di seguito:
 
-![rx5808 scanner](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/screen_list.jpg)
+![rx5808 scanner](/docs/screen_list.jpg)
 
 **NB lo scanner deve essere calibrato prima di essere utilizzato. La procedura di calibrazione
 è semplice: accendere una qualsiasi vtx su un qualsiasi canale e metterla a un paio di metri

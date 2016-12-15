@@ -21,11 +21,11 @@ Please notice that the "receiver" functionalities will not be lost! the RC305 wi
 * some electronic components (see below)
 
 ##Some (preliminary) pictures of the "scanner mode"
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/summary_explained.jpg"  />
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/band_explained.jpg"  />
+<img src="/docs/summary_explained.jpg"  />
+<img src="/docs/band_explained.jpg"  />
 
 ##A picture of the "receiver mode"
-<img src="https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/receiver_explained.jpg"  />
+<img src="/docs/receiver_explained.jpg"  />
 
 ##Similar projects:
 
@@ -52,7 +52,7 @@ Stages to success:
 ##Connection diagram
 hope this image is enough for the moment, sorry! 
 
-![rx5808_hack1](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/connection_diagram/connections_b1.jpg)
+![rx5808_hack1](/docs/connections_b1.jpg)
 
 Actually it's possible to use any value for the 3 SPI resistors in the range of 1kohm-10kohm. 
 For the voltage divider I used 15Kohm and 10Kohm resistors, but any 1/3 divider should work (see section [Voltage divider](#step3---voltage-divider)).
@@ -69,13 +69,13 @@ On the RC305 the frequency is changed by using a series of dip switch, but it wo
 
 First of all, you need to open the RC305 module, it will be similar to this:
 
-![rx5808_hack1](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_nocase.jpg)
+![rx5808_hack1](/docs/RC305_nocase.jpg)
 
 next, carefully remove the RX module shield
-![rx5808_hack2](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_opened_original.jpg)
+![rx5808_hack2](/docs/RC305_opened_original.jpg)
 
 next, remove the resistor marked by the arrow
-![rx5808_hack3](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/RC305_opened_arrow.jpg)
+![rx5808_hack3](/docs/RC305_opened_arrow.jpg)
 
 next, close all again.
 
@@ -88,18 +88,18 @@ This is the more creative step... follow the image in the [Connection diagram](C
 Just to let you get an idea of the result, this is what I've done, but keep in mind that this includes some other not-documented mods (I'm working on the TV out for the next release)... and yes, it's a mess full of trying/retrying/solder/desolder :)
 
 
-![finished_front](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/finished_front.jpg)
-![finished_back](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/finished_back.jpg)
+![finished_front](/docs/finished_front.jpg)
+![finished_back](/docs/finished_back.jpg)
 
 ##STEP3 - Voltage divider
 This is an option to get the voltage of the main battery (that can be a 2s or 3s lipo). I think that the simplest solution is to solder a couple of resistor (15k and 10k ohm) directly on the input jack connection...
 
-![voltage_divider](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/Photos/voltage_divider.jpg)
+![voltage_divider](/docs/voltage_divider.jpg)
 
 ##SOFTWARE section
 There are basically two modes of functioning, "scanner" and "receiver". In the first you can see the RSSI of each band, the spectrum and a summary of the channels usage, while in the "receiver" mode, the scanner acts like a normal RX with autoscan feature. This is the list of the different screen you have on the scanner mode and on the receiver mode:
 
-![rx5808 scanner](https://dl.dropboxusercontent.com/u/9124521/OLED-scanner/screen_list.jpg)
+![rx5808 scanner](/docs/screen_list.jpg)
 
 The scanner MUST be calibrated before use. Calibration procedure is simple: just switch on a vtx couple of meter away from the scanner, then turn on the scanner while pushing a button (no matter which one) for couple of seconds. You will see min/max RSSI and the calibration is over ;)
 
